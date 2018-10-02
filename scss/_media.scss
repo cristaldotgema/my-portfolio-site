@@ -1,0 +1,121 @@
+//small screens
+@include mediaSmall {
+  main#home h1 {
+    margin-top: 10vh;
+  }
+}
+
+//medium screens and tablets
+@include mediaMedium {
+  main {
+    align-items: center;
+    text-align: center;
+
+    .big-heading {
+      line-height: 1;
+      margin-bottom: 0;
+    }
+    small .alias {
+      margin-bottom: 1rem;
+    }
+  }
+
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //menu navigation will now be 70% of the viewport height and the translation different
+  .menu-nav {
+    height: 65vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 1em;
+  }
+
+  .menu-branding {
+    height: 35vh;
+    transform: translate3d(100%, 0, 0);
+
+    .portrait {
+      background: url('../img/icon2mini.jpg');
+      width: 164px;
+      height: 164px;
+      border-radius: 50%;
+    }
+  }
+
+  .about-info {
+    grid-template-areas:
+      'bioimage'
+      'bio'
+      'job1'
+      'job2';
+    grid-template-columns: 1fr;
+
+    .bio-image {
+      max-width: 250px;
+    }
+
+    .bio p {
+      font-size: 1.3rem;
+    }
+  }
+  /*.firstboxes div:nth-child(1) {
+    margin-right: 0.8em;
+  }
+  */
+  #portfolio {
+    .organize-buttons {
+      width: 100%;
+      .filter-button {
+        width: 100%;
+        flex: 0 1 100%;
+        display: block;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          border-right: none;
+          border-bottom: darken($secondary-color, 25) 4px solid;
+        }
+      }
+    }
+  }
+}
+
+//larger screens and laptops
+@include mediaLarge {
+  .contact-box div:nth-child(odd) {
+    margin-right: 0.8em;
+  }
+
+  #portfolio {
+    .filter-button {
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-right: darken($secondary-color, 25) 4px solid;
+      }
+    }
+  }
+}
+
+//mini HD and up
+@include mediaXLarge {
+  .contact-box div:nth-child(odd) {
+    margin-right: 0.8em;
+  }
+
+  #portfolio {
+    .filter-button {
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-right: darken($secondary-color, 25) 2px solid;
+      }
+    }
+  }
+}

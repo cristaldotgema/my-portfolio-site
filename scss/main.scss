@@ -2,12 +2,16 @@
 
 * {
   box-sizing: border-box;
+
+  //obligatory internet explorer crossbrowser support. touchscreen edition
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 body {
   @include background;
   background: $primary-color;
-  color: $text-color;
+  color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
   font-family: arial, verdana, sans-serif;
@@ -20,6 +24,8 @@ h2,
 h3 {
   margin: 0;
   font-weight: 425;
+  margin-bottom: 0.3em;
+  margin-top: 0.2em;
 
   &.big-heading {
     font-size: 3em;
@@ -34,9 +40,17 @@ h3 {
   }
 }
 
+h2 {
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+.secondary {
+  color: $secondary-color;
+}
+
 a {
   text-decoration: none;
-  color: $text-color;
+  color: set-text-color($primary-color);
 }
 
 header {
@@ -47,7 +61,7 @@ header {
 
 main {
   padding: 4rem;
-  height: 100%;
+  min-height: calc(100vh - 110px);
 
   .icons {
     margin-top: 0.8rem;
@@ -56,7 +70,10 @@ main {
     a {
       padding: 0.3em;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active,
+      &:-ms-keyboard-active {
         color: $secondary-color;
         @include easeTransition;
       }
@@ -72,4 +89,264 @@ main {
   }
 }
 
+.about-info {
+  display: grid;
+  grid-gap: 1.5em;
+  grid-template-areas:
+    'bioimage bio'
+    'job1 job2';
+  grid-template-columns: 1fr 1fr;
+
+  .bio-image {
+    grid-area: bioimage;
+    margin: auto;
+    border-radius: 50%;
+    border: $secondary-color 3px solid;
+  }
+
+  .bio {
+    grid-area: bio;
+    font-size: 1.3em;
+  }
+
+  .job {
+    background: lighten($primary-color, 2);
+    padding: 0.5em;
+    border-top: $secondary-color 5px solid;
+    border-bottom: darken($secondary-color, 5) 2px solid;
+    margin-bottom: 1em;
+
+    &.job-1 {
+      grid-area: job1;
+    }
+
+    &.job-2 {
+      grid-area: job2;
+    }
+
+    .jobtitle {
+      border-bottom: darken($secondary-color, 12) 3px solid;
+      line-height: 2em;
+      text-align: center;
+    }
+
+    p {
+      padding: 0.8em;
+    }
+  }
+}
+
+.contact-info {
+  h3 {
+    font-size: 1.5em;
+    color: $secondary-color;
+    text-align: center;
+  }
+
+  .contact-box {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.8em;
+
+    /*&.firstboxes {
+      justify-content: center;
+    }*/
+
+    div {
+      padding: 0.4em;
+      border: $secondary-color 2px solid;
+      line-height: 1.5;
+      margin-bottom: 1.2em;
+      width: 400px;
+      text-align: center;
+
+      &:hover,
+      &:focus {
+        background: $secondary-color;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        color: set-text-color($secondary-color);
+
+        @include easeTransition;
+      }
+    }
+  }
+}
+
+#portfolio {
+  .organize-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    .filter-button {
+      text-align: center;
+      padding: 0.6em;
+      background: darken($secondary-color, 20);
+      color: set-text-color(darken($secondary-color, 20));
+      border: none;
+      display: inline-block;
+      text-decoration: none;
+      flex: calc(33.3% - 8px);
+      font-size: 1em;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background: darken($secondary-color, 13);
+        @include easeTransition;
+      }
+
+      &:active,
+      &.active {
+        background: darken($secondary-color, 25);
+        @include easeTransition;
+      }
+    }
+  }
+
+  .my-work {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .portfolio-image {
+      padding: 0.2em;
+      margin: 0.2em;
+      margin-top: 0.5em;
+      background: rgba(lighten($primary-color, 10), 0.62);
+      border: rgba(lighten($primary-color, 10), 0.8) 1px solid;
+      border-bottom: $secondary-color 2px solid;
+
+      /*
+      &:before {
+        content: '';
+        width: inherit;
+        height: inherit;
+        background: set-text-color($primary-color);
+        border: set-text-color($primary-color) 1px solid;
+        @include opacity(80);
+        z-index: -1;
+      }*/
+
+      h3 {
+        font-size: 1.2em;
+        color: $tertiary-color;
+        text-align: center;
+      }
+
+      img {
+        max-width: 250px;
+        margin: 4px;
+        border: transparent 2px solid;
+        padding: 4px;
+
+        &:hover,
+        &:focus {
+          border: set-text-color($primary-color) 2px solid;
+          max-width: 258px;
+          margin: 0;
+          padding: 0;
+          @include easeTransition;
+        }
+      }
+
+      /*
+
+      &.hide {
+        display: none;
+        visibility: none;
+        @include easeTransition;
+        @include opacity(0);
+      }
+
+      &.show{
+        display: inline-block;
+        visibility: visible;
+        @include easeTransition;
+      }
+      */
+
+      .work-button {
+        padding: 10px;
+        margin-bottom: 3px;
+        margin-top: 3px;
+        text-align: center;
+        background: darken($tertiary-color, 5);
+        color: set-text-color($tertiary-color);
+        border: darken($tertiary-color, 5) 2px solid;
+        text-decoration: none;
+        width: 258px;
+        display: block;
+        font-size: 1em;
+        cursor: pointer;
+
+        a {
+          color: set-text-color($tertiary-color);
+        }
+
+        &:hover,
+        &:focus {
+          background-color: lighten($primary-color, 2);
+          color: set-text-color($primary-color);
+          border: set-text-color($primary-color) 1px solid;
+          padding: 12px;
+          margin-bottom: 1px;
+          margin-top: 1px;
+          @include easeTransition;
+
+          a {
+            color: set-text-color($primary-color);
+          }
+        }
+
+        &.unused {
+          background: #999;
+          color: set-text-color(#999);
+          text-decoration: line-through;
+          border: #999 2px solid;
+
+          &:hover,
+          &:focus {
+            background: #666;
+            color: set-text-color(#666);
+            padding: 11px;
+            margin-bottom: 1px;
+            margin-top: 1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#main-footer {
+  text-align: center;
+  padding: 1.2em;
+  background: darken($primary-color, 12);
+  color: set-text-color($primary-color);
+  height: 65px;
+}
+
+#sub-footer {
+  width: 100%;
+  text-align: center;
+  padding: 0.5em;
+  @include gradient($tertiary-color, $secondary-color, horizontal);
+  color: set-text-color($tertiary-color);
+  height: 45px;
+  letter-spacing: 0.4em;
+
+  a:hover,
+  a:focus {
+    color: darken($secondary-color, 30);
+    @include easeTransition;
+  }
+}
+
 @import 'menu';
+@import 'media';

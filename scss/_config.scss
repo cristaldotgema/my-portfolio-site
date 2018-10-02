@@ -1,12 +1,16 @@
-$primary-color: #444;
-$secondary-color: #b00b13; //change color
+$primary-color: #241f22;
+$secondary-color: #ca1c73; //change color
+$tertiary-color: #0c96a8;
 $text-color: #fff;
 $show-home-image: true;
 $home-image: url(../img/bg1.jpg); //change bg image
 $background-opacity: 0.65;
-$menu-opacity: 0.95;
+//$menu-opacity: 0.95;
 
 @mixin easeTransition {
+  -o-transition: all 0.55s ease-out;
+  -moz-transition: all 0.55s ease-out;
+  -khtml-transition: all 0.55s ease-out;
   transition: all 0.55s ease-out;
 }
 
@@ -20,46 +24,132 @@ $menu-opacity: 0.95;
 
       &:after {
         content: '';
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         width: 100%;
         height: 100%;
-        background: rgba($primary-color, $background-opacity);
+
+        //background: rgba($primary-color, $background-opacity);
+        @include gradient($primary-color, $secondary-color, vertical);
+        @include opacity($background-opacity);
         z-index: -1;
       }
     }
   }
 }
-$primary-color: #444;
-$secondary-color: #b00b13; //change color
-$text-color: #fff;
-$show-home-image: true;
-$home-image: url(../img/bg1.jpg); //change bg image
-$background-opacity: 0.5;
 
-@mixin easeTransition {
-  transition: all 0.55s ease-out;
+//set text color according to background, set up function
+@function set-text-color($color) {
+  @if (lightness($color) > 40) {
+    @return #333333;
+  } @else {
+    @return #fff;
+  }
+}
+//media queries for responsive design!
+@mixin mediaSmall {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+@mixin mediaMedium {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mediaLarge {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+@mixin mediaXLarge {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
 }
 
-//change to a custom multi-layer parallax bg
-@mixin background {
-  @if $show-home-image {
-    &#background-image {
-      background: $home-image;
-      background-attachment: fixed;
-      background-size: cover;
+//compatible crossbrowser opacity
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity = $opacity-ie); //IE5-7
+  -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + $opacity-ie +
+    ')'; //IE8
+  -moz-opacity: $opacity; // netscape
+  -khtml-opacity: $opacity; // safari 1
+  zoom: 1; //fixes IE7 bug
+}
 
-      &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba($primary-color, $background-opacity);
-        z-index: -1;
-      }
-    }
+//compatibility for text size in rem units
+@mixin font-size($size, $base: 16) {
+  font-size: $size; // fallback for old browsers
+  font-size: ($size / $base) * 1rem;
+}
+
+//retina image or not?
+@mixin retina($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+    (-o-min-device-pixel-ratio: 2.6/2),
+    (-webkit-min-device-pixel-ratio: 1.3),
+    (min-device-pixel-ratio: 1.3),
+    (min-resolution: 1.3dppx) {
+    /* Serving 2x image on Retina display */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+//compatible crossbrowser gradient mixin
+
+@mixin gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: -o-linear-gradient(top, $start-color, $end-color);
+    background: -moz-linear-gradient(top, $start-color, $end-color);
+    background: -khtml-linear-gradient(top, $start-color, $end-color);
+    /* IE 5.5–7 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$start-color, endColorstr=$end-color, GradientType=0);
+    /* IE 8–9 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='" +
+      $start-color +
+      "', endColorstr='" +
+      $end-color +
+      "', GradientType=0)";
+    /* IE 10 */
+    background: -ms-linear-gradient(top, $start-color 0%, $end-color 100%);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: -o-linear-gradient(left, $start-color, $end-color);
+    background: -moz-linear-gradient(left, $start-color, $end-color);
+    background: -khtml-linear-gradient(left, $start-color, $end-color);
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      color-stop(0%, $start-color),
+      color-stop(100%, $end-color)
+    );
+    /* IE 5.5–7 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$start-color, endColorstr=$end-color, GradientType=1);
+    /* IE 8–9 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='" +
+      $start-color +
+      "', endColorstr='" +
+      $end-color +
+      "', GradientType=1)";
+    /* IE 10 */
+    background: -ms-linear-gradient(left, $start-color 0%, $end-color 100%);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(
+      center,
+      ellipse cover,
+      $start-color,
+      $end-color
+    );
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
   }
 }

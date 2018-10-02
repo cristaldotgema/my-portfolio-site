@@ -9,6 +9,10 @@
   "author": "Magz Candy Manzanilla",
   "license": "MIT",
   "dependencies": {
-    "node-sass": "^4.9.3"
+    "compass": "^0.1.1",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.3",
+    "parallax.js": "^0.1.0",
+    "relax.js": "^0.2.2"
   }
 }
