@@ -69,12 +69,13 @@
 
                 <h2>Commissions</h2>
 
+                <!--
                 <div class="imageGalleryContainer">
-                    <!--
+                
                     <div class="leftarrow">
                         <i class="fas fa-long-arrow-alt-left"></i>
                     </div>
-                -->
+                
 
                     <div id="imageSlideshowContainer">
                         <div class="imageSlideshow">
@@ -86,26 +87,81 @@
                             <img src="img/services/example1.jpg" alt="illustration example 1">
                         </div>
                     </div>
-                    <!--
+                    
                     <div class="rightarrow">
                         <i class="fas fa-long-arrow-alt-right"></i>
                     </div>
-                -->
-                </div>
+                
+                </div>-->
 
                 <div class="imageSlideContainer">
 
-                    <div class="imageSlidesy">
-                        <div class="imagesInSlide">
-                            <img src="img/services/example1.jpg" alt="" class="carousel">
-                            <img src="img/services/example2.jpg" alt="" class="carousel">
-                            <img src="img/services/example3.jpg" alt="" class="carousel">
-                            <img src="img/services/example4.jpg" alt="" class="carousel">
-                            <img src="img/services/example5.jpg" alt="" class="carousel">
+                    <input type="radio" name="exampleImages" id="i1" checked>
+                    <input type="radio" name="exampleImages" id="i2">
+                    <input type="radio" name="exampleImages" id="i3">
+                    <input type="radio" name="exampleImages" id="i4">
+                    <input type="radio" name="exampleImages" id="i5">
 
-                        </div>
+                    <div class="imagesInSlide" id="image1">
+                        <img src="img/services/example1.jpg" alt="example image 4" class="carousel">
+                        <label for="i5" class="previousButton">
+                            <i class="fas fa-long-arrow-alt-left"></i>
+                        </label>
+                        <label for="i2" class="nextButton">
+                            <i class="fas fa-long-arrow-alt-right"></i>
+                        </label>
+
+                    </div>
+                    <div class="imagesInSlide" id="image2">
+                        <img src="img/services/example2.jpg" alt="example image 4" class="carousel">
+                        <label for="i1" class="previousButton">
+                            <i class="fas fa-long-arrow-alt-left"></i>
+                        </label>
+                        <label for="i3" class="nextButton">
+                            <i class="fas fa-long-arrow-alt-right"></i>
+
+                        </label>
+                    </div>
+                    <div class="imagesInSlide" id="image3">
+                        <img src="img/services/example3.jpg" alt="example image 3" class="carousel">
+                        <label for="i2" class="previousButton">
+                            <i class="fas fa-long-arrow-alt-left"></i>
+
+                        </label>
+                        <label for="i4" class="nextButton">
+                            <i class="fas fa-long-arrow-alt-right"></i>
+
+                        </label>
+                    </div>
+                    <div class="imagesInSlide" id="image4">
+                        <img src="img/services/example4.jpg" alt="example image 4" class="carousel">
+                        <label for="i3" class="previousButton">
+                            <i class="fas fa-long-arrow-alt-left"></i>
+                        </label>
+                        <label for="i5" class="nextButton">
+                            <i class="fas fa-long-arrow-alt-right"></i>
+                        </label>
+                    </div>
+                    <div class="imagesInSlide" id="image5">
+                        <img src="img/services/example5.jpg" alt="example image 5" class="carousel">
+                        <label for="i4" class="previousButton">
+                            <i class="fas fa-long-arrow-alt-left"></i>
+                        </label>
+                        <label for="i1" class="nextButton">
+                            <i class="fas fa-long-arrow-alt-right"></i>
+                        </label>
+                    </div>
+
+                    <div class="nav">
+                        <label class="dots" id="dot1" for="i1"></label>
+                        <label class="dots" id="dot2" for="i2"></label>
+                        <label class="dots" id="dot3" for="i3"></label>
+                        <label class="dots" id="dot4" for="i4"></label>
+                        <label class="dots" id="dot5" for="i5"></label>
+
                     </div>
                 </div>
+
 
                 <p>
                     At the moment, I provide commissions services for illustration/visual arts and soon for web design projects, with different
@@ -509,16 +565,20 @@
 
 
         //time for image gallery arrow functionality my guys
-    /*  var slide = 0;
+        /*  var slide = 0;
+    
+            $('rightarrow').click(function () {
+                slide = (slide <= 400) ? (slide + 100 %) : 0;
+    
+                $('.imageSlideshow').css('left', -x + "%");
+            }
+        */
 
-        $('rightarrow').click(function () {
-            slide = (slide <= 400) ? (slide + 100 %) : 0;
 
-            $('.imageSlideshow').css('left', -x + "%");
-        }
-    */
-
-
+        //changes radio button selection in image carousel every 4 seconds
+        setInterval(function () {
+            $('input').eq(($('input:checked').index() + 1) % 5).prop('checked', true);
+        }, 4000);
     </script>
 </body>
 

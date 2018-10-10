@@ -28,6 +28,7 @@
     }
   }
 
+  /*
   #imageSlideshowContainer {
     max-width: 180px;
     max-height: 128px;
@@ -44,6 +45,7 @@
       }
     }
   }
+  */
 }
 
 //medium screens and tablets
@@ -157,19 +159,44 @@
   }
 
   #services {
-    #Extras {
-      .freebies {
-        width: auto;
+    .services-info {
+      width: 100%;
+      .imageSlideContainer {
+        width: 100%;
+        padding-bottom: 70%;
+        /*.imagesInSlide {
+          .previousButton,
+          .nextButton {
+            padding-left: 0;
+          }
+          .previousButton {
+            text-align: left;
+            padding-left: 2%;
+          }
+          .nextButton {
+            text-align: right;
+            padding-right: 2%;
+          }
+        }*/
+        .nav {
+          top: -30px;
+        }
+      }
 
-        .freebiesImage {
-          display: block;
-          width: 100%;
-          margin: 0;
-          margin-bottom: 2px;
-          img {
+      #Extras {
+        .freebies {
+          width: auto;
+
+          .freebiesImage {
             display: block;
             width: 100%;
             margin: 0;
+            margin-bottom: 2px;
+            img {
+              display: block;
+              width: 100%;
+              margin: 0;
+            }
           }
         }
       }
@@ -196,13 +223,14 @@
 }
 
 @include mediaMediumOnly {
-  #imageSlideshowContainer {
+  /* #imageSlideshowContainer {
     .imageSlideshow {
       animation-name: slideShow;
       animation-duration: 18s;
       animation-iteration-count: infinite;
     }
   }
+  */
 }
 
 //larger screens and laptops
@@ -229,6 +257,7 @@
     }
   }
 
+  /*
   #imageSlideshowContainer {
     .imageSlideshow {
       animation-name: slideShow;
@@ -236,6 +265,7 @@
       animation-iteration-count: infinite;
     }
   }
+  */
 }
 
 //mini HD and up
@@ -253,6 +283,7 @@
     }
   }
 
+  /*
   #imageSlideshowContainer {
     .imageSlideshow {
       animation-name: slideShow;
@@ -260,4 +291,5 @@
       animation-iteration-count: infinite;
     }
   }
+  */
 }

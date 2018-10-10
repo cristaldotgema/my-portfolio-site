@@ -461,6 +461,120 @@ main {
         @include easeTransition;
       }
     }
+
+    .imageSlideContainer {
+      margin: 0 auto;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      background: darken($secondary-color, 15);
+      width: 40%;
+      height: 0;
+      padding-bottom: 28%;
+      border: 2px $secondary-color solid;
+      position: relative;
+
+      .imagesInSlide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        @include easeTransition;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+        .previousButton,
+        .nextButton {
+          width: 14%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          background: rgba(darken($secondary-color, 3), 0.05);
+          cursor: pointer;
+          z-index: 2;
+          padding-top: 30%;
+          font-size: 1.5em;
+          color: rgba(set-text-color($primary-color), 0.25);
+        }
+        .previousButton {
+          left: 0;
+          padding-left: 2%;
+          text-align: left;
+          border-right: rgba(darken($secondary-color, 25), 0.1) 2px solid;
+        }
+        .nextButton {
+          right: 0;
+          padding-right: 2%;
+          text-align: right;
+          border-left: rgba(darken($secondary-color, 25), 0.1) 2px solid;
+        }
+        img:hover ~ .previousButton,
+        img:focus ~ .previousButton,
+        img:hover ~ .nextButton,
+        img:focus ~ .nextButton,
+        .previousButton:hover,
+        .previousButton:focus,
+        .nextButton:hover,
+        .nextButton:focus
+        {
+          background: rgba(darken($secondary-color, 5), 0.5);
+          color: set-text-color($primary-color);
+          @include easeTransition;
+        }
+      }
+
+      .nav {
+        width: 100%;
+        height: 12px;
+        position: absolute;
+        bottom: 8%;
+        text-align: center;
+        z-index: 2;
+        justify-content: center;
+        .dots {
+          top: -5px;
+          width: 15px;
+          height: 15px;
+          margin: 0 4px;
+          position: relative;
+          border-radius: 50%;
+          display: inline-block;
+          background: rgba(darken($secondary-color, 35), 0.65);
+          border: rgba(lighten($secondary-color, 35), 0.65) 2px solid;
+        }
+      }
+
+      #i1,
+      #i2,
+      #i3,
+      #i4,
+      #i5 {
+        display: none;
+      }
+
+      input:checked{
+        @include easeTransition;
+      }
+
+      #i1:checked ~ #image1,
+      #i2:checked ~ #image2,
+      #i3:checked ~ #image3,
+      #i4:checked ~ #image4,
+      #i5:checked ~ #image5 {
+        z-index: 1;
+      }
+
+      #i1:checked ~ .nav #dot1,
+      #i2:checked ~ .nav #dot2,
+      #i3:checked ~ .nav #dot3,
+      #i4:checked ~ .nav #dot4,
+      #i5:checked ~ .nav #dot5 {
+        background: set-text-color($primary-color);
+        border: set-text-color($primary-color) 2px solid;
+      }
+    }
+
     .accordion {
       width: 100%;
       overflow: hidden;
@@ -587,6 +701,7 @@ main {
     }
   }
 
+  /*
   .imageGalleryContainer {
     display: flex;
     margin: auto;
@@ -647,6 +762,7 @@ main {
       padding-right: 12px;
     }
   }
+  */
 
   #Testimonials {
     justify-content: center;

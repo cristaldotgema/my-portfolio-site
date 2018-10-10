@@ -1,56 +1,93 @@
 @charset "UTF-8";
+/*
+//for slideshow animation
 @keyframes slideShow {
+  //12 seconds for 4 images... so its 12/4 = every 3s it should change image
+  //100 % divided by 12s is 8.333% for every second. 25% for every 3s
+
   0% {
-    left: 0px; }
+    left: 0px;
+  }
   16% {
-    left: 0px; }
+    left: 0px;
+  }
+  //20% is 2.4 seconds, there's 0.6 seconds for a transition. this is like premiere pro but with
+  //middle school math
+  //edit: i changed it to 18s duration so eh
   19% {
-    left: -360px; }
+    left: -360px;
+  }
   35% {
-    left: -360px; }
+    left: -360px;
+  }
   38% {
-    left: -720px; }
+    left: -720px;
+  }
   54% {
-    left: -720px; }
+    left: -720px;
+  }
   57% {
-    left: -1080px; }
+    left: -1080px;
+  }
   73% {
-    left: -1080px; }
+    left: -1080px;
+  }
   76% {
-    left: -1440px; }
+    left: -1440px;
+  }
   92% {
-    left: -1440px; }
+    left: -1440px;
+  }
   95% {
-    left: -1800px; }
+    left: -1800px;
+  }
   100% {
-    left: -1800px; } }
+    left: -1800px;
+  }
+}
 
 @keyframes SlideshowMini {
   0% {
-    left: 0; }
+    left: 0;
+  }
   16% {
-    left: 0; }
+    left: 0;
+  }
+  //20% is 2.4 seconds, there's 0.6 seconds for a transition. this is like premiere pro but with
+  //middle school math
+  //edit: i changed it to 18s duration so eh
   19% {
-    left: -180px; }
+    left: -180px;
+  }
   35% {
-    left: -180px; }
+    left: -180px;
+  }
   38% {
-    left: -360px; }
+    left: -360px;
+  }
   54% {
-    left: -360px; }
+    left: -360px;
+  }
   57% {
-    left: -540px; }
+    left: -540px;
+  }
   73% {
-    left: -540px; }
+    left: -540px;
+  }
   76% {
-    left: -720px; }
+    left: -720px;
+  }
   92% {
-    left: -720px; }
+    left: -720px;
+  }
   95% {
-    left: -900px; }
+    left: -900px;
+  }
   100% {
-    left: -900px; } }
-
+    left: -900px;
+  }
+}
+*/
 /*@mixin retina($image, $width, $height) {
   @media (min--moz-device-pixel-ratio: 1.3),
     (-o-min-device-pixel-ratio: 2.6/2),
@@ -414,227 +451,333 @@ main {
           margin-bottom: 1px;
           margin-top: 1px; }
 
-#services .services-info h2 {
-  color: #e64c99;
-  font-size: 1.6em;
-  text-align: center; }
+#services {
+  /*
+  .imageGalleryContainer {
+    display: flex;
+    margin: auto;
+    justify-content: center;
 
-#services .services-info h3 {
-  font-size: 1.2em; }
-
-#services .services-info p a {
-  color: #e22d87;
-  text-decoration: underline; }
-  #services .services-info p a:hover, #services .services-info p a:focus {
-    color: #0fc1d8;
-    text-decoration: none;
-    -o-transition: all 0.55s ease-out;
-    -moz-transition: all 0.55s ease-out;
-    -khtml-transition: all 0.55s ease-out;
-    transition: all 0.55s ease-out; }
-
-#services .services-info .accordion {
-  width: 100%;
-  overflow: hidden;
-  background: #4d4249;
-  color: #fff;
-  align-content: center;
-  margin: auto;
-  -o-transition: all 0.55s ease-out;
-  -moz-transition: all 0.55s ease-out;
-  -khtml-transition: all 0.55s ease-out;
-  transition: all 0.55s ease-out; }
-  #services .services-info .accordion .active {
-    display: block;
-    -o-transition: all 0.55s ease-out;
-    -moz-transition: all 0.55s ease-out;
-    -khtml-transition: all 0.55s ease-out;
-    transition: all 0.55s ease-out; }
-  #services .services-info .accordion .accordion-opener {
-    background: #322b2f;
-    outline: none;
-    padding: 15px;
-    border: 0;
-    width: 100%;
-    text-align: left;
-    font-size: 1.2em;
-    cursor: pointer;
-    color: #fff; }
-    #services .services-info .accordion .accordion-opener:not(:first-child) {
-      border-top: #a89aa2 2px solid; }
-    #services .services-info .accordion .accordion-opener:hover, #services .services-info .accordion .accordion-opener:focus {
-      color: #fff;
-      background: #161315;
-      -o-transition: all 0.55s ease-out;
-      -moz-transition: all 0.55s ease-out;
-      -khtml-transition: all 0.55s ease-out;
-      transition: all 0.55s ease-out; }
-  #services .services-info .accordion .panels {
-    background: #cccccc;
-    display: none;
-    border-top: #d7d1d5 2px solid; }
-    #services .services-info .accordion .panels p {
-      padding: 1em;
-      color: #6c6c6c;
-      background: #e6e6e6;
-      font-size: 1.1em;
+    #imageSlideshowContainer {
+      width: 360px;
+      height: 265px;
       overflow: hidden;
-      margin-top: 0;
-      margin-bottom: 0;
-      -o-transition: all 0.55s ease-out;
-      -moz-transition: all 0.55s ease-out;
-      -khtml-transition: all 0.55s ease-out;
-      transition: all 0.55s ease-out; }
-
-#services #Extras .freebies {
-  margin: auto;
-  width: 100%;
-  justify-content: space-around; }
-  #services #Extras .freebies .freebiesImage {
-    margin: 0;
-    clear: both;
-    width: calc(50% - 3px);
-    display: inline-block;
-    position: relative; }
-    #services #Extras .freebies .freebiesImage img {
       margin: 0;
-      width: 100%;
-      display: inline-block; }
-    #services #Extras .freebies .freebiesImage .view {
-      line-height: 1;
-      position: absolute;
-      top: calc(50% - 50px);
-      left: calc(50% - 50px);
-      border-radius: 50%;
-      z-index: 24;
-      font-size: 2em;
-      font-weight: 200;
-      background: rgba(41, 36, 39, 0.6);
-      padding: 25px;
-      display: none;
-      opacity: opacity(0);
-      cursor: pointer;
-      -o-transition: all 0.55s ease-out;
-      -moz-transition: all 0.55s ease-out;
-      -khtml-transition: all 0.55s ease-out;
-      transition: all 0.55s ease-out; }
-    #services #Extras .freebies .freebiesImage:hover .view,
-    #services #Extras .freebies .freebiesImage:focus .view {
-      display: block;
-      visibility: visible;
-      color: #fff;
-      opacity: opacity(1);
-      -o-transition: all 0.55s ease-out;
-      -moz-transition: all 0.55s ease-out;
-      -khtml-transition: all 0.55s ease-out;
-      transition: all 0.55s ease-out; }
+      border-top: $secondary-color 2px solid;
+      border-bottom: $secondary-color 2px solid;
 
-#services #Extras .newsletter {
-  margin: 25px auto;
-  justify-content: center;
-  background: #ca1c73;
-  color: #fff;
-  padding: 15px;
-  font-size: 1.1em;
-  outline: none;
-  border: 0;
-  display: block;
-  cursor: pointer; }
-  #services #Extras .newsletter:hover, #services #Extras .newsletter:focus {
-    background: #9d165a;
-    padding: 18px;
-    margin: 19px auto;
+      .imageSlideshow {
+        position: relative;
+        left: 0;
+        width: (360px * 6);
+        margin: 0;
+
+        img {
+          float: left;
+          margin: 0;
+          padding: 0;
+          width: 360px;
+          height: 265px;
+          //        display: inline-block;
+        }
+      }
+    }
+
+    //beside the image slideshow
+    .leftarrow,
+    .rightarrow {
+      background: $secondary-color;
+      color: set-text-color($primary-color);
+      font-size: 1.1em;
+      height: 265px;
+      margin: 0;
+      padding: 8px;
+      padding-top: 115px;
+      cursor: pointer;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: darken($secondary-color, 10);
+        @include easeTransition;
+      }
+    }
+    .leftarrow {
+      border-radius: 10px 0 0 10px; //top left, top right, bottom-right, bottom-left. clockwise, remember?
+      margin-right: 0;
+      padding-left: 12px;
+    }
+    .rightarrow {
+      border-radius: 0 10px 10px 0;
+      margin-left: 0;
+      padding-right: 12px;
+    }
+  }
+  */ }
+  #services .services-info h2 {
+    color: #e64c99;
+    font-size: 1.6em;
+    text-align: center; }
+  #services .services-info h3 {
+    font-size: 1.2em; }
+  #services .services-info p a {
+    color: #e22d87;
+    text-decoration: underline; }
+    #services .services-info p a:hover, #services .services-info p a:focus {
+      color: #0fc1d8;
+      text-decoration: none;
+      -o-transition: all 0.55s ease-out;
+      -moz-transition: all 0.55s ease-out;
+      -khtml-transition: all 0.55s ease-out;
+      transition: all 0.55s ease-out; }
+  #services .services-info .imageSlideContainer {
+    margin: 0 auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background: #87134d;
+    width: 40%;
+    height: 0;
+    padding-bottom: 28%;
+    border: 2px #ca1c73 solid;
+    position: relative; }
+    #services .services-info .imageSlideContainer .imagesInSlide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      -o-transition: all 0.55s ease-out;
+      -moz-transition: all 0.55s ease-out;
+      -khtml-transition: all 0.55s ease-out;
+      transition: all 0.55s ease-out; }
+      #services .services-info .imageSlideContainer .imagesInSlide img {
+        width: 100%;
+        height: 100%; }
+      #services .services-info .imageSlideContainer .imagesInSlide .previousButton,
+      #services .services-info .imageSlideContainer .imagesInSlide .nextButton {
+        width: 14%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background: rgba(189, 26, 107, 0.05);
+        cursor: pointer;
+        z-index: 2;
+        padding-top: 30%;
+        font-size: 1.5em;
+        color: rgba(255, 255, 255, 0.25); }
+      #services .services-info .imageSlideContainer .imagesInSlide .previousButton {
+        left: 0;
+        padding-left: 2%;
+        text-align: left;
+        border-right: rgba(90, 12, 51, 0.1) 2px solid; }
+      #services .services-info .imageSlideContainer .imagesInSlide .nextButton {
+        right: 0;
+        padding-right: 2%;
+        text-align: right;
+        border-left: rgba(90, 12, 51, 0.1) 2px solid; }
+      #services .services-info .imageSlideContainer .imagesInSlide img:hover ~ .previousButton,
+      #services .services-info .imageSlideContainer .imagesInSlide img:focus ~ .previousButton,
+      #services .services-info .imageSlideContainer .imagesInSlide img:hover ~ .nextButton,
+      #services .services-info .imageSlideContainer .imagesInSlide img:focus ~ .nextButton,
+      #services .services-info .imageSlideContainer .imagesInSlide .previousButton:hover,
+      #services .services-info .imageSlideContainer .imagesInSlide .previousButton:focus,
+      #services .services-info .imageSlideContainer .imagesInSlide .nextButton:hover,
+      #services .services-info .imageSlideContainer .imagesInSlide .nextButton:focus {
+        background: rgba(180, 25, 102, 0.5);
+        color: #fff;
+        -o-transition: all 0.55s ease-out;
+        -moz-transition: all 0.55s ease-out;
+        -khtml-transition: all 0.55s ease-out;
+        transition: all 0.55s ease-out; }
+    #services .services-info .imageSlideContainer .nav {
+      width: 100%;
+      height: 12px;
+      position: absolute;
+      bottom: 8%;
+      text-align: center;
+      z-index: 2;
+      justify-content: center; }
+      #services .services-info .imageSlideContainer .nav .dots {
+        top: -5px;
+        width: 15px;
+        height: 15px;
+        margin: 0 4px;
+        position: relative;
+        border-radius: 50%;
+        display: inline-block;
+        background: rgba(45, 6, 26, 0.65);
+        border: rgba(243, 166, 204, 0.65) 2px solid; }
+    #services .services-info .imageSlideContainer #i1,
+    #services .services-info .imageSlideContainer #i2,
+    #services .services-info .imageSlideContainer #i3,
+    #services .services-info .imageSlideContainer #i4,
+    #services .services-info .imageSlideContainer #i5 {
+      display: none; }
+    #services .services-info .imageSlideContainer input:checked {
+      -o-transition: all 0.55s ease-out;
+      -moz-transition: all 0.55s ease-out;
+      -khtml-transition: all 0.55s ease-out;
+      transition: all 0.55s ease-out; }
+    #services .services-info .imageSlideContainer #i1:checked ~ #image1,
+    #services .services-info .imageSlideContainer #i2:checked ~ #image2,
+    #services .services-info .imageSlideContainer #i3:checked ~ #image3,
+    #services .services-info .imageSlideContainer #i4:checked ~ #image4,
+    #services .services-info .imageSlideContainer #i5:checked ~ #image5 {
+      z-index: 1; }
+    #services .services-info .imageSlideContainer #i1:checked ~ .nav #dot1,
+    #services .services-info .imageSlideContainer #i2:checked ~ .nav #dot2,
+    #services .services-info .imageSlideContainer #i3:checked ~ .nav #dot3,
+    #services .services-info .imageSlideContainer #i4:checked ~ .nav #dot4,
+    #services .services-info .imageSlideContainer #i5:checked ~ .nav #dot5 {
+      background: #fff;
+      border: #fff 2px solid; }
+  #services .services-info .accordion {
+    width: 100%;
+    overflow: hidden;
+    background: #4d4249;
+    color: #fff;
+    align-content: center;
+    margin: auto;
     -o-transition: all 0.55s ease-out;
     -moz-transition: all 0.55s ease-out;
     -khtml-transition: all 0.55s ease-out;
     transition: all 0.55s ease-out; }
-
-#services .imageGalleryContainer {
-  display: flex;
-  margin: auto;
-  justify-content: center; }
-  #services .imageGalleryContainer #imageSlideshowContainer {
-    width: 360px;
-    height: 265px;
-    overflow: hidden;
-    margin: 0;
-    border-top: #ca1c73 2px solid;
-    border-bottom: #ca1c73 2px solid; }
-    #services .imageGalleryContainer #imageSlideshowContainer .imageSlideshow {
-      position: relative;
-      left: 0;
-      width: 2160px;
-      margin: 0; }
-      #services .imageGalleryContainer #imageSlideshowContainer .imageSlideshow img {
-        float: left;
+    #services .services-info .accordion .active {
+      display: block;
+      -o-transition: all 0.55s ease-out;
+      -moz-transition: all 0.55s ease-out;
+      -khtml-transition: all 0.55s ease-out;
+      transition: all 0.55s ease-out; }
+    #services .services-info .accordion .accordion-opener {
+      background: #322b2f;
+      outline: none;
+      padding: 15px;
+      border: 0;
+      width: 100%;
+      text-align: left;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: #fff; }
+      #services .services-info .accordion .accordion-opener:not(:first-child) {
+        border-top: #a89aa2 2px solid; }
+      #services .services-info .accordion .accordion-opener:hover, #services .services-info .accordion .accordion-opener:focus {
+        color: #fff;
+        background: #161315;
+        -o-transition: all 0.55s ease-out;
+        -moz-transition: all 0.55s ease-out;
+        -khtml-transition: all 0.55s ease-out;
+        transition: all 0.55s ease-out; }
+    #services .services-info .accordion .panels {
+      background: #cccccc;
+      display: none;
+      border-top: #d7d1d5 2px solid; }
+      #services .services-info .accordion .panels p {
+        padding: 1em;
+        color: #6c6c6c;
+        background: #e6e6e6;
+        font-size: 1.1em;
+        overflow: hidden;
+        margin-top: 0;
+        margin-bottom: 0;
+        -o-transition: all 0.55s ease-out;
+        -moz-transition: all 0.55s ease-out;
+        -khtml-transition: all 0.55s ease-out;
+        transition: all 0.55s ease-out; }
+  #services #Extras .freebies {
+    margin: auto;
+    width: 100%;
+    justify-content: space-around; }
+    #services #Extras .freebies .freebiesImage {
+      margin: 0;
+      clear: both;
+      width: calc(50% - 3px);
+      display: inline-block;
+      position: relative; }
+      #services #Extras .freebies .freebiesImage img {
         margin: 0;
-        padding: 0;
-        width: 360px;
-        height: 265px; }
-  #services .imageGalleryContainer .leftarrow,
-  #services .imageGalleryContainer .rightarrow {
+        width: 100%;
+        display: inline-block; }
+      #services #Extras .freebies .freebiesImage .view {
+        line-height: 1;
+        position: absolute;
+        top: calc(50% - 50px);
+        left: calc(50% - 50px);
+        border-radius: 50%;
+        z-index: 24;
+        font-size: 2em;
+        font-weight: 200;
+        background: rgba(41, 36, 39, 0.6);
+        padding: 25px;
+        display: none;
+        opacity: opacity(0);
+        cursor: pointer;
+        -o-transition: all 0.55s ease-out;
+        -moz-transition: all 0.55s ease-out;
+        -khtml-transition: all 0.55s ease-out;
+        transition: all 0.55s ease-out; }
+      #services #Extras .freebies .freebiesImage:hover .view,
+      #services #Extras .freebies .freebiesImage:focus .view {
+        display: block;
+        visibility: visible;
+        color: #fff;
+        opacity: opacity(1);
+        -o-transition: all 0.55s ease-out;
+        -moz-transition: all 0.55s ease-out;
+        -khtml-transition: all 0.55s ease-out;
+        transition: all 0.55s ease-out; }
+  #services #Extras .newsletter {
+    margin: 25px auto;
+    justify-content: center;
     background: #ca1c73;
     color: #fff;
+    padding: 15px;
     font-size: 1.1em;
-    height: 265px;
-    margin: 0;
-    padding: 8px;
-    padding-top: 115px;
+    outline: none;
+    border: 0;
+    display: block;
     cursor: pointer; }
-    #services .imageGalleryContainer .leftarrow:hover, #services .imageGalleryContainer .leftarrow:active, #services .imageGalleryContainer .leftarrow:focus,
-    #services .imageGalleryContainer .rightarrow:hover,
-    #services .imageGalleryContainer .rightarrow:active,
-    #services .imageGalleryContainer .rightarrow:focus {
+    #services #Extras .newsletter:hover, #services #Extras .newsletter:focus {
       background: #9d165a;
+      padding: 18px;
+      margin: 19px auto;
       -o-transition: all 0.55s ease-out;
       -moz-transition: all 0.55s ease-out;
       -khtml-transition: all 0.55s ease-out;
       transition: all 0.55s ease-out; }
-  #services .imageGalleryContainer .leftarrow {
-    border-radius: 10px 0 0 10px;
-    margin-right: 0;
-    padding-left: 12px; }
-  #services .imageGalleryContainer .rightarrow {
-    border-radius: 0 10px 10px 0;
-    margin-left: 0;
-    padding-right: 12px; }
-
-#services #Testimonials {
-  justify-content: center;
-  text-align: center;
-  width: calc(95vw-2rem);
-  margin: auto; }
-  #services #Testimonials .witness {
-    font-size: 1.4em; }
-  #services #Testimonials .testimonialsnippet {
-    margin-bottom: 3em; }
-    #services #Testimonials .testimonialsnippet blockquote {
-      position: relative;
-      padding: 2px;
-      background: #322b2f; }
-    #services #Testimonials .testimonialsnippet blockquote:before,
-    #services #Testimonials .testimonialsnippet blockquote:after {
-      font-size: 3.5em;
-      line-height: 0.5em;
-      color: rgba(255, 255, 255, 0.52); }
-    #services #Testimonials .testimonialsnippet blockquote:before {
-      content: '\201C';
-      position: absolute;
-      left: 0;
-      top: 4px;
-      height: 100%; }
-    #services #Testimonials .testimonialsnippet blockquote:after {
-      content: '\201D';
-      position: absolute;
-      left: 98%;
-      top: calc(100%-0.5em); }
-  #services #Testimonials img {
-    width: 150px;
-    border-radius: 50%;
-    border: #ca1c73 2px solid; }
-
-#services #Giveaway .listedEvents {
-  text-align: center; }
+  #services #Testimonials {
+    justify-content: center;
+    text-align: center;
+    width: calc(95vw-2rem);
+    margin: auto; }
+    #services #Testimonials .witness {
+      font-size: 1.4em; }
+    #services #Testimonials .testimonialsnippet {
+      margin-bottom: 3em; }
+      #services #Testimonials .testimonialsnippet blockquote {
+        position: relative;
+        padding: 2px;
+        background: #322b2f; }
+      #services #Testimonials .testimonialsnippet blockquote:before,
+      #services #Testimonials .testimonialsnippet blockquote:after {
+        font-size: 3.5em;
+        line-height: 0.5em;
+        color: rgba(255, 255, 255, 0.52); }
+      #services #Testimonials .testimonialsnippet blockquote:before {
+        content: '\201C';
+        position: absolute;
+        left: 0;
+        top: 4px;
+        height: 100%; }
+      #services #Testimonials .testimonialsnippet blockquote:after {
+        content: '\201D';
+        position: absolute;
+        left: 98%;
+        top: calc(100%-0.5em); }
+    #services #Testimonials img {
+      width: 150px;
+      border-radius: 50%;
+      border: #ca1c73 2px solid; }
+  #services #Giveaway .listedEvents {
+    text-align: center; }
 
 #main-footer {
   text-align: center;
@@ -827,17 +970,24 @@ main {
     margin: 2rem; }
     #home .homeTitle .homeinfo {
       font-size: 1em; }
+  /*
   #imageSlideshowContainer {
     max-width: 180px;
-    max-height: 128px; }
-    #imageSlideshowContainer .imageSlideshow {
+    max-height: 128px;
+
+    .imageSlideshow {
       max-width: calc(180px * 6);
       animation-name: SlideshowMini;
       animation-duration: 12s;
-      animation-iteration-count: infinite; }
-      #imageSlideshowContainer .imageSlideshow img {
+      animation-iteration-count: infinite;
+
+      img {
         max-width: 180px;
-        max-height: 128px; } }
+        max-height: 128px;
+      }
+    }
+  }
+  */ }
 
 @media screen and (max-width: 768px) {
   #home #bg {
@@ -904,17 +1054,38 @@ main {
       #portfolio .organize-buttons .filter-button:nth-child(1), #portfolio .organize-buttons .filter-button:nth-child(2) {
         border-right: none;
         border-bottom: #5a0c33 4px solid; }
-  #services #Extras .freebies {
-    width: auto; }
-    #services #Extras .freebies .freebiesImage {
-      display: block;
+  #services .services-info {
+    width: 100%; }
+    #services .services-info .imageSlideContainer {
       width: 100%;
-      margin: 0;
-      margin-bottom: 2px; }
-      #services #Extras .freebies .freebiesImage img {
+      padding-bottom: 70%;
+      /*.imagesInSlide {
+          .previousButton,
+          .nextButton {
+            padding-left: 0;
+          }
+          .previousButton {
+            text-align: left;
+            padding-left: 2%;
+          }
+          .nextButton {
+            text-align: right;
+            padding-right: 2%;
+          }
+        }*/ }
+      #services .services-info .imageSlideContainer .nav {
+        top: -30px; }
+    #services .services-info #Extras .freebies {
+      width: auto; }
+      #services .services-info #Extras .freebies .freebiesImage {
         display: block;
         width: 100%;
-        margin: 0; }
+        margin: 0;
+        margin-bottom: 2px; }
+        #services .services-info #Extras .freebies .freebiesImage img {
+          display: block;
+          width: 100%;
+          margin: 0; }
   #Testimonials {
     width: calc(100% - 2px);
     padding-left: 0; }
@@ -927,10 +1098,14 @@ main {
       position: absolute; } }
 
 @media screen and (min-width: 501px) and (max-width: 768px) {
-  #imageSlideshowContainer .imageSlideshow {
-    animation-name: slideShow;
-    animation-duration: 18s;
-    animation-iteration-count: infinite; } }
+  /* #imageSlideshowContainer {
+    .imageSlideshow {
+      animation-name: slideShow;
+      animation-duration: 18s;
+      animation-iteration-count: infinite;
+    }
+  }
+  */ }
 
 @media screen and (min-width: 769px) and (max-width: 1170px) {
   #bg img {
@@ -942,17 +1117,27 @@ main {
     margin-right: 0.8em; }
   #portfolio .filter-button:nth-child(1), #portfolio .filter-button:nth-child(2) {
     border-right: #5a0c33 4px solid; }
-  #imageSlideshowContainer .imageSlideshow {
-    animation-name: slideShow;
-    animation-duration: 18s;
-    animation-iteration-count: infinite; } }
+  /*
+  #imageSlideshowContainer {
+    .imageSlideshow {
+      animation-name: slideShow;
+      animation-duration: 18s;
+      animation-iteration-count: infinite;
+    }
+  }
+  */ }
 
 @media screen and (min-width: 1171px) {
   .contact-box div:nth-child(odd) {
     margin-right: 0.8em; }
   #portfolio .filter-button:nth-child(1), #portfolio .filter-button:nth-child(2) {
     border-right: #5a0c33 2px solid; }
-  #imageSlideshowContainer .imageSlideshow {
-    animation-name: slideShow;
-    animation-duration: 18s;
-    animation-iteration-count: infinite; } }
+  /*
+  #imageSlideshowContainer {
+    .imageSlideshow {
+      animation-name: slideShow;
+      animation-duration: 18s;
+      animation-iteration-count: infinite;
+    }
+  }
+  */ }
