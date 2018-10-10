@@ -2,9 +2,9 @@ $primary-color: #241f22;
 $secondary-color: #ca1c73; //change color
 $tertiary-color: #0c96a8;
 $text-color: #fff;
-$show-home-image: true;
+$show-home-image: false;
 $home-image: url(../img/bg1.jpg); //change bg image
-$background-opacity: 0.65;
+$background-opacity: 0.45;
 //$menu-opacity: 0.95;
 
 @mixin easeTransition {
@@ -39,10 +39,98 @@ $background-opacity: 0.65;
   }
 }
 
+//for slideshow animation
+@keyframes slideShow {
+  //12 seconds for 4 images... so its 12/4 = every 3s it should change image
+  //100 % divided by 12s is 8.333% for every second. 25% for every 3s
+
+  0% {
+    left: 0px;
+  }
+  16% {
+    left: 0px;
+  }
+  //20% is 2.4 seconds, there's 0.6 seconds for a transition. this is like premiere pro but with
+  //middle school math
+  //edit: i changed it to 18s duration so eh
+  19% {
+    left: -360px;
+  }
+  35% {
+    left: -360px;
+  }
+  38% {
+    left: -720px;
+  }
+  54% {
+    left: -720px;
+  }
+  57% {
+    left: -1080px;
+  }
+  73% {
+    left: -1080px;
+  }
+  76% {
+    left: -1440px;
+  }
+  92% {
+    left: -1440px;
+  }
+  95% {
+    left: -1800px;
+  }
+  100% {
+    left: -1800px;
+  }
+}
+
+@keyframes SlideshowMini {
+  0% {
+    left: 0;
+  }
+  16% {
+    left: 0;
+  }
+  //20% is 2.4 seconds, there's 0.6 seconds for a transition. this is like premiere pro but with
+  //middle school math
+  //edit: i changed it to 18s duration so eh
+  19% {
+    left: -180px;
+  }
+  35% {
+    left: -180px;
+  }
+  38% {
+    left: -360px;
+  }
+  54% {
+    left: -360px;
+  }
+  57% {
+    left: -540px;
+  }
+  73% {
+    left: -540px;
+  }
+  76% {
+    left: -720px;
+  }
+  92% {
+    left: -720px;
+  }
+  95% {
+    left: -900px;
+  }
+  100% {
+    left: -900px;
+  }
+}
+
 //set text color according to background, set up function
 @function set-text-color($color) {
   @if (lightness($color) > 40) {
-    @return #333333;
+    @return #525252;
   } @else {
     @return #fff;
   }
@@ -55,6 +143,11 @@ $background-opacity: 0.65;
 }
 @mixin mediaMedium {
   @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mediaMediumOnly {
+  @media screen and (min-width: 501px) and (max-width: 768px) {
     @content;
   }
 }
@@ -88,17 +181,17 @@ $background-opacity: 0.65;
 }
 
 //retina image or not?
-@mixin retina($image, $width, $height) {
+/*@mixin retina($image, $width, $height) {
   @media (min--moz-device-pixel-ratio: 1.3),
     (-o-min-device-pixel-ratio: 2.6/2),
     (-webkit-min-device-pixel-ratio: 1.3),
     (min-device-pixel-ratio: 1.3),
     (min-resolution: 1.3dppx) {
-    /* Serving 2x image on Retina display */
+    // Serving 2x image on Retina display 
     background-image: url($image);
     background-size: $width $height;
   }
-}
+}*/
 
 //compatible crossbrowser gradient mixin
 

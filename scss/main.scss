@@ -28,15 +28,15 @@ h3 {
   margin-top: 0.2em;
 
   &.big-heading {
-    font-size: 3em;
+    font-size: 2.5em;
     //font-family: aquatico, sans-serif; {insert aquatico regular here}
-    font-family: 'Tajawal', sans-serif;
+    font-family: Arial, sans-serif;
   }
 
   &.small-heading {
     margin-bottom: 0.5em;
     padding: 0.25em;
-    background: rgba(lighten($primary-color, 2), 0.62);
+    //background: rgba(lighten($primary-color, 2), 0.62);
   }
 }
 
@@ -61,7 +61,97 @@ header {
 
 main {
   padding: 4rem;
-  min-height: calc(100vh - 110px);
+  height: 100%;
+
+  #home {
+    position: relative;
+  }
+  #bg {
+    margin: -4rem;
+    height: 100vh;
+    //max-height: calc(100vh - 4rem);
+    width: 100vw;
+    //overflow: hidden;
+    //position: relative;
+    z-index: -2;
+    overflow: hidden;
+    //justify-content: center;
+
+    img {
+      //position: absolute;
+      //   height: 140vh;
+      width: 140vw;
+      margin: auto;
+      //left: -15vw;
+      //top: -5%;
+      -webkit-transform: translateX(-20vw);
+      -ms-transform: translateX(-20vw);
+      transform: translateX(-20vw);
+      /*&.logoicon {
+        width: 180px;
+        position: absolute;
+        top: 4em;
+        left: calc(60vw - 90px);
+      }*/
+    }
+  }
+
+  .homeTitle {
+    position: absolute;
+    top: 50%;
+    //    margin-left: 2rem;
+    z-index: 2;
+    justify-content: center;
+
+    .homeinfo {
+      position: relative;
+      padding: 4px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        width: 100%;
+        height: 100%;
+        padding: 6px;
+        margin: auto;
+        //background: rgba($primary-color, $background-opacity);
+        @include gradient(
+          darken($secondary-color, 25),
+          darken($tertiary-color, 25),
+          vertical
+        );
+        //border: darken($primary-color, 20) 4px solid;
+        @include opacity($background-opacity);
+        z-index: -1;
+      }
+    }
+    h1 {
+      display: inline-block;
+      margin-top: 0.2em;
+      margin-bottom: 0.5em;
+      &.big-heading {
+        margin-bottom: 0;
+      }
+    }
+
+    h2 {
+      margin-top: 0;
+      display: block;
+    }
+    small {
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+  }
+
+  &#about,
+  &#services,
+  &#portfolio,
+  &#Contact {
+    min-height: calc(100vh - 110px);
+  }
 
   .icons {
     margin-top: 0.8rem;
@@ -72,9 +162,9 @@ main {
 
       &:hover,
       &:focus,
-      &:active,
-      &:-ms-keyboard-active {
+      &:active {
         color: $secondary-color;
+        //-webkit-text-stroke: ;
         @include easeTransition;
       }
     }
@@ -82,10 +172,6 @@ main {
 
   &#home {
     overflow: hidden;
-
-    h1 {
-      margin-top: 20vh;
-    }
   }
 }
 
@@ -239,14 +325,45 @@ main {
         text-align: center;
       }
 
-      img {
+      .imagecontainer {
+        position: relative;
         max-width: 250px;
-        margin: 4px;
-        border: transparent 2px solid;
-        padding: 4px;
+        max-height: 250px;
+        img {
+          max-width: 250px;
+          margin: 4px;
+          border: transparent 2px solid;
+          padding: 4px;
+        }
+        .view {
+          line-height: 1;
+          position: absolute;
+          top: calc(50% - 20px);
+          left: calc(50% - 20px);
+          border-radius: 50%;
+          z-index: 24;
+          font-size: 1.3em;
+          font-weight: 200;
+          background: rgba(lighten($primary-color, 2), 0.6);
+          padding: 10px;
+          //display: block;
+          display: none;
+          opacity: opacity(0);
+          cursor: pointer;
+          @include easeTransition;
+        }
 
-        &:hover,
-        &:focus {
+        &:hover .view,
+        &:focus .view {
+          display: block;
+          visibility: visible;
+          color: #fff;
+          opacity: opacity(1);
+          @include easeTransition;
+        }
+
+        &:hover img,
+        &:focus img {
           border: set-text-color($primary-color) 2px solid;
           max-width: 258px;
           margin: 0;
@@ -254,7 +371,6 @@ main {
           @include easeTransition;
         }
       }
-
       /*
 
       &.hide {
@@ -320,6 +436,270 @@ main {
           }
         }
       }
+    }
+  }
+}
+
+#services {
+  .services-info {
+    h2 {
+      color: lighten($secondary-color, 15);
+      font-size: 1.6em;
+      text-align: center;
+    }
+    h3 {
+      font-size: 1.2em;
+    }
+    p a {
+      color: lighten($secondary-color, 8);
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: lighten($tertiary-color, 10);
+        text-decoration: none;
+        @include easeTransition;
+      }
+    }
+    .accordion {
+      width: 100%;
+      overflow: hidden;
+      background: lighten($primary-color, 15);
+      color: set-text-color(lighten($primary-color, 15));
+      // border: lighten($primary-color, 50) 2px solid;
+      align-content: center;
+      margin: auto;
+      @include easeTransition;
+
+      .active {
+        display: block;
+        @include easeTransition;
+      }
+
+      .accordion-opener {
+        background: lighten($primary-color, 5);
+        outline: none;
+        padding: 15px;
+        border: 0;
+        width: 100%;
+        text-align: left;
+        font-size: 1.2em;
+        cursor: pointer;
+        color: set-text-color(lighten($primary-color, 5));
+
+        &:not(:first-child) {
+          border-top: lighten($primary-color, 50) 2px solid;
+        }
+
+        &:hover,
+        &:focus {
+          color: set-text-color(darken($primary-color, 5));
+          background: darken($primary-color, 5);
+          @include easeTransition;
+        }
+      }
+
+      .panels {
+        background: darken(set-text-color($primary-color), 20);
+        display: none;
+        border-top: lighten($primary-color, 70) 2px solid;
+
+        p {
+          padding: 1em;
+          color: lighten(set-text-color(set-text-color($primary-color)), 10);
+          background: darken(set-text-color($primary-color), 10);
+          font-size: 1.1em;
+          overflow: hidden;
+          margin-top: 0;
+          margin-bottom: 0;
+          @include easeTransition;
+        }
+      }
+    }
+  }
+
+  #Extras {
+    .freebies {
+      margin: auto;
+      width: 100%;
+      justify-content: space-around;
+
+      .freebiesImage {
+        margin: 0;
+        clear: both;
+        width: calc(50% - 3px);
+        display: inline-block;
+        position: relative;
+
+        img {
+          margin: 0;
+          width: 100%;
+          display: inline-block;
+        }
+        .view {
+          line-height: 1;
+          position: absolute;
+          top: calc(50% - 50px);
+          left: calc(50% - 50px);
+          border-radius: 50%;
+          z-index: 24;
+          font-size: 2em;
+          font-weight: 200;
+          background: rgba(lighten($primary-color, 2), 0.6);
+          padding: 25px;
+          //display: block;
+          display: none;
+          opacity: opacity(0);
+          cursor: pointer;
+          @include easeTransition;
+        }
+
+        &:hover .view,
+        &:focus .view {
+          display: block;
+          visibility: visible;
+          color: #fff;
+          opacity: opacity(1);
+          @include easeTransition;
+        }
+      }
+    }
+
+    .newsletter {
+      margin: 25px auto;
+      justify-content: center;
+      background: $secondary-color;
+      color: set-text-color($primary-color);
+      padding: 15px;
+      font-size: 1.1em;
+      outline: none;
+      border: 0;
+      display: block;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background: darken($secondary-color, 10);
+        padding: 18px;
+        margin: 19px auto;
+        @include easeTransition;
+      }
+    }
+  }
+
+  .imageGalleryContainer {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+    #imageSlideshowContainer {
+      width: 360px;
+      height: 265px;
+      overflow: hidden;
+      margin: 0;
+      border-top: $secondary-color 2px solid;
+      border-bottom: $secondary-color 2px solid;
+
+      .imageSlideshow {
+        position: relative;
+        left: 0;
+        width: (360px * 6);
+        margin: 0;
+
+        img {
+          float: left;
+          margin: 0;
+          padding: 0;
+          width: 360px;
+          height: 265px;
+          //        display: inline-block;
+        }
+      }
+    }
+
+    //beside the image slideshow
+    .leftarrow,
+    .rightarrow {
+      background: $secondary-color;
+      color: set-text-color($primary-color);
+      font-size: 1.1em;
+      height: 265px;
+      margin: 0;
+      padding: 8px;
+      padding-top: 115px;
+      cursor: pointer;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: darken($secondary-color, 10);
+        @include easeTransition;
+      }
+    }
+    .leftarrow {
+      border-radius: 10px 0 0 10px; //top left, top right, bottom-right, bottom-left. clockwise, remember?
+      margin-right: 0;
+      padding-left: 12px;
+    }
+    .rightarrow {
+      border-radius: 0 10px 10px 0;
+      margin-left: 0;
+      padding-right: 12px;
+    }
+  }
+
+  #Testimonials {
+    justify-content: center;
+    text-align: center;
+    width: calc(95vw-2rem);
+    margin: auto;
+    .witness {
+      font-size: 1.4em;
+    }
+
+    .testimonialsnippet {
+      margin-bottom: 3em;
+
+      blockquote {
+        position: relative;
+        padding: 2px;
+        background: lighten($primary-color, 5);
+      }
+      blockquote:before,
+      blockquote:after {
+        font-size: 3.5em;
+        line-height: 0.5em;
+        color: rgba(set-text-color($primary-color), 0.52);
+      }
+      blockquote:before {
+        content: '\201C';
+        position: absolute;
+        left: 0;
+        top: 4px;
+        height: 100%;
+        //padding: 5px;
+        //border-left: rgba(set-text-color($primary-color), 0.52) 4px solid;
+      }
+      blockquote:after {
+        content: '\201D';
+        position: absolute;
+        left: 98%;
+        top: calc(100%-0.5em);
+      }
+    }
+    img {
+      width: 150px;
+      border-radius: 50%;
+      border: $secondary-color 2px solid;
+    }
+  }
+
+  #Donate {
+  }
+
+  #Giveaway {
+    .listedEvents {
+      text-align: center;
     }
   }
 }

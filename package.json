@@ -14,5 +14,8 @@
     "node-sass": "^4.9.3",
     "parallax.js": "^0.1.0",
     "relax.js": "^0.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

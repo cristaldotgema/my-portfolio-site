@@ -97,15 +97,17 @@
       background-size: 200px;
       border: solid 0.1em $secondary-color;
       border-radius: 100px;
+      cursor: pointer;
     }
   }
   .nav-item {
     //initial position 100% from the bottom
-    transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 0, 0);
     @include easeTransition;
 
     &.show {
-      transform: translate3d(0, -100%, 0);
+      transform: translate3d(0, 0, 0);
+      @include easeTransition;
       //move to normal position (bottom to top translation)
     }
 
