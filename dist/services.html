@@ -96,11 +96,11 @@
 
                 <div class="imageSlideContainer">
 
-                    <input type="radio" name="exampleImages" id="i1" checked>
-                    <input type="radio" name="exampleImages" id="i2">
-                    <input type="radio" name="exampleImages" id="i3">
-                    <input type="radio" name="exampleImages" id="i4">
-                    <input type="radio" name="exampleImages" id="i5">
+                    <input type="radio" class="imageFunct" name="exampleImages" id="i1" checked>
+                    <input type="radio" class="imageFunct" name="exampleImages" id="i2">
+                    <input type="radio" class="imageFunct" name="exampleImages" id="i3">
+                    <input type="radio" class="imageFunct" name="exampleImages" id="i4">
+                    <input type="radio" class="imageFunct" name="exampleImages" id="i5">
 
                     <div class="imagesInSlide" id="image1">
                         <img src="img/services/example1.jpg" alt="example image 4" class="carousel">
@@ -579,7 +579,7 @@
 
         //changes radio button selection in image carousel every 4 seconds
         setInterval(function () {
-            $('input').eq(($('input:checked').index() + 1) % 5).prop('checked', true);
+            $('.imageFunct').eq(($('input:checked').index() + 1) % 5).prop('checked', true);
         }, 4000);
     </script>
 </body>

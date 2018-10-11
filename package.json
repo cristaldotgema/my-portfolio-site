@@ -10,19 +10,38 @@
   "license": "MIT",
   "dependencies": {
     "compass": "^0.1.1",
+    "graceful-fs": "^4.1.11",
     "jquery": "^3.3.1",
+    "minimatch": "^3.0.2",
     "node-sass": "^4.9.3",
     "parallax.js": "^0.1.0",
     "relax.js": "^0.2.2"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-cache": "^1.0.2",
+    "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-load-plugins": "^1.5.0",
+    "gulp-minify-css": "^1.2.4",
     "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-responsive": "^2.11.0",
+    "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-uncss": "^1.0.6",
+    "gulp-util": "^3.0.8",
+    "imagemin-gifsicle": "^5.2.0",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-optipng": "^5.2.1",
+    "imagemin-pngquant": "^6.0.0"
   }
 }
